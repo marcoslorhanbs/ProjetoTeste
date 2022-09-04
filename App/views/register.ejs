@@ -1,0 +1,120 @@
+<%- include ('./layouts/header') %>  
+  
+  <div class="container">
+    <main  style="position: relative;">
+      <div class="row g-3">
+        <div class="col-md-5 col-lg-4 order-md-last">
+           <div class="container" style="text-align: center; margin:10px auto;">
+              
+           </div>
+        </div>
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-3 tittle" _msthash="968656" _msttexthash="515554" style="direction: ltr; text-align: left;">User registration</h4>
+          <form id="form" class="needs-validation was-validated" action="/register" method="post" >
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="firstName" class="login-firstName" _msthash="2295839" _msttexthash="208377" style="direction: ltr; text-align: left;">Name</label>
+                <input type="text" class="form-control" name="firstName" placeholder="" value="" required>
+                <div class="invalid-feedback" _msthash="2152878" _msttexthash="6300827" _msthidden="1" >
+                  Tell your Name
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="lastName" class="login-lastName" _msthash="2296086" _msttexthash="92794" style="direction: ltr; text-align: left;">Last name</label>
+                <input type="text" class="form-control" name="lastName" placeholder="" value="" required>
+                <div class="invalid-feedback" _msthash="2153099" _msttexthash="7386340" _msthidden="1">
+                  Give last name
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="age" class="login-age" _msthash="2296086" _msttexthash="92794" style="direction: ltr; text-align: left;">Age</label>
+                <input type="number" class="form-control" name="age" placeholder="Idade" value="" required>
+                <div class="invalid-feedback" _msthash="2153099" _msttexthash="7386340" _msthidden="1">
+                 Tell your age
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="username" class="login-user" _msthash="2296333" _msttexthash="263640" style="direction: ltr; text-align: left;">Name of user</label>
+                <div class="input-group has-validation">
+                  <input type="text" class="form-control" name="username" placeholder="Nome do usuário" required _mstplaceholder="263640" style="direction: ltr; text-align: left;">
+                <div class="invalid-feedback" _msthash="2592174" _msttexthash="8580156" _msthidden="1">
+                  Enter the username
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 ">
+                <label for="blood" class="login-blood" _msthash="2297815" _msttexthash="215748" style="direction: ltr; text-align: left;">Blood Type</label>
+                <input type="text" class="form-control" name="blood" placeholder="A+" required>
+                <div class="invalid-feedback" _msthash="2154646" _msttexthash="5298631" _msthidden="1">
+                Blood Type!
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="zip" class="login-zip" _msthash="2297815" _msttexthash="215748" style="direction: ltr; text-align: left;">Zip</label>
+                <input type="text" class="form-control" name="zip" placeholder="" required>
+                <div class="invalid-feedback" _msthash="2154646" _msttexthash="5298631" _msthidden="1">
+                  Mandatory zip code
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="email" class="login-email" _msthash="2296580" _msttexthash="280358" style="direction: ltr; text-align: left;">E-mail</label>
+                <div class="input-group has-validation">
+                  <input type="email" class="form-control" name="email" placeholder="you@exemple.com" required _mstplaceholder="263640" style="direction: ltr; text-align: left;">
+                <div class="invalid-feedback" _msthash="2592174" _msttexthash="8580156" _msthidden="1">
+                 Inform your email.
+                 </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="password" class="login-pass" _msthash="2296580" _msttexthash="280358" style="direction: ltr; text-align: left;">Password</label>
+                <div class="input-group has-validation">
+                  <input type="password" class="form-control" name="password" placeholder="Password" required _mstplaceholder="263640" style="direction: ltr; text-align: left;">
+                <div class="invalid-feedback" _msthash="2592174" _msttexthash="8580156" _msthidden="1">
+                 Inform your password
+                 </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="address" class="login-city" _msthash="2296827" _msttexthash="133848" style="direction: ltr; text-align: left;">City</label>
+                <input type="text" class="form-control" name="city" placeholder="Cidade" required _mstplaceholder="264043" style="direction: ltr; text-align: left;">
+                <div class="invalid-feedback" _msthash="2153762" _msttexthash="10498332" _msthidden="1">
+                  Inform your City
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="address" class="login-street" _msthash="2296827" _msttexthash="133848" style="direction: ltr; text-align: left;">Road or Avenue</label>
+                <input type="text" class="form-control" name="road" placeholder="Rua ..." required _mstplaceholder="264043" style="direction: ltr; text-align: left;">
+                <div class="invalid-feedback" _msthash="2153762" _msttexthash="10498332" _msthidden="1">
+                  Inform the Street
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="address" class="login-district" _msthash="2296827" _msttexthash="133848" style="direction: ltr; text-align: left;">District</label>
+                <input type="text" class="form-control" name="district" placeholder="Avenida 07 de Setembro" required _mstplaceholder="264043" style="direction: ltr; text-align: left;">
+                <div class="invalid-feedback" _msthash="2153762" _msttexthash="10498332" _msthidden="1">
+                  Report your neighborhood
+                </div>
+              </div>
+
+            </div>
+
+            <hr class="my-4">
+            <button class="w-100 btn btn-primary btn-lg" type="submit" _msthash="1634243" _msttexthash="286871" style="direction: ltr;">Cadastrar</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+<%- include ('./layouts/footer') %>  
+ 

@@ -1,0 +1,62 @@
+<%- include ('./layouts/header') %> 
+
+  <div class="container" style="padding: 20px;">
+  <div style="background-color: rgb(207, 63, 63);" class="d-flex align-items-center p-3 my-3 btn-danger rounded shadow-sm">
+    
+    <div class="lh-1">
+      <h1 class="h6 mb-0 text-white lh-1" _msthash="706771" _msttexthash="138918">Localiza.ai - GuardasHub</h1>
+      <small _msthash="526591" _msttexthash="91975">Desde 2022</small>
+    </div>
+  </div>
+
+    <main class="containar">
+      <div class="containar" style="display: grid; grid-template-rows: 1fr 1fr;">
+        <div id="grid">
+          <div class="col-md-4">
+              <% users.forEach(function(user) { %>
+              <div class="col-md-8">
+                <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="42" height="42" xmlns="http://www.w3.org/2000/svg" role="img" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                  <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                  <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+                  <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                </svg>
+                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+                  <div style="color: red;">
+                    <strong><%= user.blood %></strong>
+                  </div>
+                  <span class="d-block" _msthash="1078792" _msttexthash="133965">
+                    <a href="/users/<%= user.username %>" >@<%= user.username %></a>
+                  </span>
+                </div>
+              </div>
+              <% }) %> 
+            </div>
+          
+        </div>
+      </div>
+    </main>
+    
+  </div>
+<style>
+  #grid{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 20px;
+    margin: 20px;
+  }
+  .card{
+    border: 2px solid black;
+    padding:10px auto;
+    text-align: right;
+  }
+  .card-1 {
+    display: grid;
+  }
+  #message{
+    position: relative;
+  }
+  #sub{
+    text-align-last: end;
+  }
+</style>
+<%- include ('./layouts/footer') %>  

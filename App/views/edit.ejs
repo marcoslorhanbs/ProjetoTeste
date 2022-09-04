@@ -1,0 +1,78 @@
+<%- include ('./layouts/header') %>  
+
+  <div class="container">
+    <main  style="position: relative;">
+      <div class="row g-3">
+        <div class="col-md-5 col-lg-4 order-md-last">
+          <div class="card" style="text-align: center;  border: 0ex;" >
+            <br>
+        </div>
+           <div class="container" style="text-align: center; margin:10px auto;">
+              
+           </div>
+        </div>
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-3" _msthash="968656" _msttexthash="515554" style="direction: ltr; text-align: left;">Edit User</h4>
+          <form  method="post" >
+            <div class="row g-3">
+
+              <div class="col-sm-6">
+                <label for="username" class="form-label" _msthash="2296333" _msttexthash="263640" style="direction: ltr; text-align: left;">Name of user</label>
+                <div class="input-group has-validation">
+                  <input type="text" class="form-control" id="username" name="username" placeholder="Nome do usuário" value="<%= currentUser.username || "" %>">
+                <div class="invalid-feedback" _msthash="2592174" _msttexthash="8580156" _msthidden="1">
+                  inform your username
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="age" class="form-label" _msthash="2296086" _msttexthash="92794" style="direction: ltr; text-align: left;">Age</label>
+                <input type="number" class="form-control" name="age" placeholder="Idade" value="<%= currentUser.age || "" %>">
+                <div class="invalid-feedback" _msthash="2153099" _msttexthash="7386340" _msthidden="1">
+                  Tell your age
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="address" class="form-label" _msthash="2296827" _msttexthash="133848" style="direction: ltr; text-align: left;">City</label>
+                <input type="text" class="form-control" id="address" name="city" placeholder="Cidade" value="<%= currentUser.address.city || "" %>">
+                <div class="invalid-feedback" _msthash="2153762" _msttexthash="10498332" _msthidden="1">
+                  Inform your City
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="address" class="form-label" _msthash="2296827" _msttexthash="133848" style="direction: ltr; text-align: left;">Road or Avenue</label>
+                <input type="text" class="form-control" id="address" name="road" placeholder="Rua ..." value="<%= currentUser.address.road || "" %>">
+                <div class="invalid-feedback" _msthash="2153762" _msttexthash="10498332" _msthidden="1">
+                  Inform the Street
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="address" class="form-label" _msthash="2296827" _msttexthash="133848" style="direction: ltr; text-align: left;">District</label>
+                <input type="text" class="form-control" id="address" name="district" placeholder="Avenida 07 de Setembro" value="<%= currentUser.address.district || "" %>" >
+                <div class="invalid-feedback" _msthash="2153762" _msttexthash="10498332" _msthidden="1">
+                  Report your neighborhood
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="zip" class="form-label" _msthash="2297815" _msttexthash="215748" style="direction: ltr; text-align: left;">Zip</label>
+                <input type="text" class="form-control" id="zip" name="zip" value="<%= currentUser.address.zip || "" %>" >
+                <div class="invalid-feedback" _msthash="2154646" _msttexthash="5298631" _msthidden="1">
+                  Mandatory zip code
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4">
+            <button class="w-100 btn btn-primary btn-lg" type="submit" _msthash="1634243" _msttexthash="286871" style="direction: ltr;">Edit</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+
+<%- include ('./layouts/footer') %>  

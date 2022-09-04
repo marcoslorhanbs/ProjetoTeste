@@ -1,0 +1,42 @@
+
+<%- include ('./layouts/header') %> 
+
+<div class="container" style="padding: 20px;">
+    <div style="background-color: rgb(207, 63, 63);" class="d-flex align-items-center p-3 my-3 btn-danger rounded shadow-sm">
+    
+    <div class="lh-1">
+      <h1 class="h6 mb-0 text-white lh-1" _msthash="706771" _msttexthash="138918">Localiza.ai - GuardasHub</h1>
+      <small _msthash="526591" _msttexthash="91975">Desde 2022</small>
+    </div>
+  </div>
+<div class="my-3 p-3 bg-body rounded shadow-sm">
+  
+    <h6 class="border-bottom pb-2 mb-0" _msthash="484250" _msttexthash="161655">Suggestions</h6>
+  <% users.forEach(function(user) { %>
+    
+    <div class="d-flex text-muted pt-3">
+      <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="42" height="42" xmlns="http://www.w3.org/2000/svg" role="img" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+        <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+        <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+        <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+      </svg>
+      <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+        <div class="d-flex justify-content-between">
+          <div>
+            <strong class="text-gray-dark" _msthash="1517490" _msttexthash="208481"><%= user.name.firstName || user.name.lastName %></strong>
+            <span class="d-block" _msthash="1078792" _msttexthash="133965">@<%= user.username %></span>
+          </div>
+          
+          <div>
+            <a href="/users/<%= user.username %>" _msthash="1224899" _msttexthash="78117"> Perfil</a> <br>
+          </div>
+        </div>
+      </div>
+</div>
+<% }) %> 
+  <small class="d-block text-end mt-3">
+    <a href="/user/forum" _msthash="604162" _msttexthash="361725">Forum</a>
+  </small>
+</div>
+
+<%- include ('./layouts/footer') %>  

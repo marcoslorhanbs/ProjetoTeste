@@ -1,0 +1,295 @@
+openapi: 3.0.3
+info:
+  title: Swagger Example - OpenAPI 3.0
+  description: |-
+   This is an example of Academica Server activity based on the OpenAPI 3.0 specification. You can learn more about
+    Swagger at (https://swagger.io/tools/swagger-ui).
+
+    Now you can help us improve the API, either by making changes to the definition itself or to the code.
+    That way, over time, we can improve the API in general and expose some of the new features of the app.
+     
+    Some useful links:
+    - [The Application repository](https://github.com/ManoelAFJr/projectFinal.github.io)
+  version: 1.0.0
+servers:
+  - url: /
+tags:
+  - name: user
+    description: Everything about your Users
+paths:
+             
+  /api/login:
+    post:
+      tags:
+        - user
+      summary: Logs user into the system
+      description: ''
+      operationId: loginUser
+      parameters:
+        - name: username
+          in: query
+          description: The user name for login
+          required: false
+          schema:
+            type: string
+        - name: password
+          in: query
+          description: The password for login in clear text
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-Rate-Limit:
+              description: calls per hour allowed by the user
+              schema:
+                type: string
+                format:
+            X-Expires-After:
+              description: date in UTC when token expires
+              schema:
+                type: string
+                format: date-time
+          content:
+            application/json:
+              schema:
+                type: string
+        '400':
+          description: Invalid username/password supplied
+  
+  /api/logout:
+    get:
+      tags:
+        - user
+      summary: Logs out current logged in user session
+      description: ''
+      operationId: logoutUser
+      parameters: []
+      responses:
+        default:
+          description: successful operation
+  
+  /api/user:
+    get:
+        tags:
+          - user
+        summary: Returns a list of persons
+        description: Returns all user registered in the App
+        operationId: getProfilesUsers
+        responses:
+          '200':
+            description: Successful operation
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/User'
+
+  /api/user/{username}:
+    get:
+      tags:
+        - user
+      summary: Get user by user name
+      description: ''
+      operationId: getUserByName
+      parameters:
+        - name: username
+          in: path
+          description: 'The name that needs to be fetched. Use user1 for testing. '
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pessoa'          
+        '400':
+          description: Invalid username supplied
+        '404':
+          description: User not found
+
+  /api/register:
+    post:
+        tags:
+          - user
+        summary: Create user
+        description: This can only be done by the logged in user.
+        operationId: createUser
+        requestBody:
+          description: Created user object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: '#/components/schemas/User'
+        responses:
+          default:
+            description: successful operation
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/User'
+              application/xml:
+                schema:
+                  $ref: '#/components/schemas/User'    
+
+  /api/delete/{email}:
+    post:
+      tags:
+        - user
+      summary: Delete user
+      description: This can only be done by the logged in user.
+      operationId: deleteUser
+      parameters:
+        - name: email
+          in: path
+          description: The name that needs to be deleted
+          required: true
+          schema:
+            type: string
+      responses:
+        '400':
+          description: Invalid username supplied
+        '404':
+          description: User not found                                            
+
+  /api/edite:
+    post:
+      tags:
+        - user
+      summary: Update user
+      description: This can only be done by the logged in user.
+      operationId: updateUser
+      parameters:
+          schema:
+            type: string
+      requestBody:
+        description: Update an existent user in the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Edite'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Edite'
+      responses:
+        default:
+          description: successful operation
+
+  /api/user/forum:
+    post:
+      tags:
+        - user
+      summary: Submit msg
+      description: This can only be done by the logged in user.
+      operationId: submitMsg
+      parameters:
+          schema:
+            type: string
+      requestBody:
+        description: Sending a message on the forum
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Forum'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Forum'
+      responses:
+        default:
+          description: successful operation
+
+
+components:
+  schemas:
+    User:
+      required:
+        - email
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: Paulo
+        lastName:
+          type: string
+          example: Henrrique
+        username:
+          type: string
+          example: phenrrique
+        blood:
+          type: string
+          example: A+
+        age:
+          type: Number
+          example: 33
+        email:
+          type: string
+          example: ph@gmail.com
+        password:
+          type: string
+          example: aaa
+        city:
+          type: string
+          example: Sousa
+        road:
+          type: string
+          example: rua Francisco Mendes
+        district:
+          type: string
+          example: As casinhas
+        zip:
+          type: string
+          example: 58888000
+               
+    Delete:
+      required:
+        - email
+      type: object
+      properties:
+        email:
+          type: string
+          example: ph@gmail.com
+        prontuario:
+          type: integer
+          example:  630555c0dad3d60b494c9505
+      
+    Edite:
+      required:
+        - email
+      type: object
+      properties:
+        email:
+          type: string
+          example: ph@gmail.com
+        username:
+          type: string
+          example: paulo
+        city:
+          type: string
+          example: Cajazeiras
+        road:
+          type: string
+          example: rua Travessa 20 de Abril
+        district:
+          type: string
+          example: Centro
+        zip:
+          type: string
+          example: 58832-000 
+    
+    Forum:
+     required:
+       - msg
+     type: object
+     properties:
+       msg:
+         type: string
+         example: Obrigado Galera!!!
